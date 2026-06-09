@@ -1,3 +1,4 @@
+import chalk from "chalk";
 // quais ações meu carrinho pode fazer
 
 // CASOS DE USO
@@ -41,7 +42,7 @@ async function deleteItem(userCart, name) {
 }
 
 async function displayCart(userCart) {
-    console.log("Itens na lista do carrinho: \n");
+    console.log(chalk.yellow("Itens na lista do carrinho: \n"));
     userCart.forEach((item, index) => {
         console.log(`${index + 1}. ${item.name} - Preço: R$ ${item.price} - Quantidade: ${item.quantity} - Favorito?(${item.favorite}) - Subtotal: R$ ${item.subtotal()}`)
         // taxa entrega
@@ -49,7 +50,7 @@ async function displayCart(userCart) {
     })
 }
 async function displayFavorites(userCart){
-    console.log("\nItens favoritos na sua lista do carrinho: \n")
+    console.log(chalk.bgRed("\nItens favoritos na sua lista do carrinho: \n"))
 const favoriteItems = userCart.filter((item) => {
     return item.favorite;
 })

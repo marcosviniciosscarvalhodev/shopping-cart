@@ -1,10 +1,11 @@
 import * as cartService from "./services/cart.js"
 import createItem from "./services/itens.js";
+import chalk from "chalk";
 
 const myCart = [];
 
 
-console.log("🛒 Bem-vindo ao seu carrinho de compras!")
+console.log(chalk.bgYellow("🛒 Bem-vindo ao seu carrinho de compras!"))
 
 //criação dos itens que serão adicionados no carrinho
 const item1 = await createItem("Boné Nike", 259.90, 2, true);
@@ -28,5 +29,5 @@ await cartService.removeItem(myCart, item2); //remove 1 quantidade do item escol
 await cartService.displayCart(myCart); // mostra o carrinho
 await cartService.displayFavorites(myCart); // mostra os itens favoritos do carrinho
 
-console.log("\nO total do seu carrinho Shopee é de:")
+console.log(chalk.yellow("\nO total do seu carrinho é de:"))
 await cartService.calculateTotal(myCart);
